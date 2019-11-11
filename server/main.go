@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"fmt"
 	"io"
 	"net/http"
 	"time"
@@ -42,8 +43,9 @@ func main() {
 		// represents the time until the full request header (send by a client) should be read
 		ReadHeaderTimeout: 20 * time.Second,
 		Handler:           h,
-		Addr:              ":8080",
+		Addr:              ":9090",
 	}
 
-	server.ListenAndServe()
+	fmt.Println("server was up")
+	fmt.Println(server.ListenAndServe())
 }
